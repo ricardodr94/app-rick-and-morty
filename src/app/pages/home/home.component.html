@@ -1,0 +1,79 @@
+<!----------------------------CAROUSEL----------------------------->
+<div [ngStyle]="{'height':'400px'}" id="carouselExampleIndicators" class="carousel slide carousel-img" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/imgs/img1.jpg" class="d-block w-100 carousel-img" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/imgs/img2.jpg" class="d-block w-100 carousel-img" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/imgs/img3.jpg" class="d-block w-100 carousel-img" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/imgs/img4.jpg" class="d-block w-100 carousel-img" alt="">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+<!-------------------INFORMACION DE RICK AND MORTY-------------------------->
+
+<div class="container-fluid text-white" >
+  <div class="row">
+    <div class="col-12">
+         <h2>Historia</h2>
+         <p> 
+          Rick and Morty es una serie de televisión estadounidense de animación
+          para adultos creada por Justin Roiland y Dan Harmon en 2013 para Adult Swim. 
+          La serie sigue las desventuras de un científico, Rick, y su fácilmente influenciable 
+          nieto, Morty, quienes pasan el tiempo entre la vida doméstica y los viajes espaciales, 
+          temporales e intergalácticos. Roiland es el encargado de darle voz a Rick y a Morty, 
+          la serie también incluye las voces de Chris Parnell, Spencer Grammer y Sarah Chalke.
+         </p>
+         <p>
+          La serie se originó por un cortometraje rudimentario animado por Roiland para el festival 
+          de cine Channel 101 llamado Doc and Mharti, una parodia de los principales protagonistas 
+          de Back to the Future. Cuando la cadena NBC despidió a Harmon en 2013 por discusiones entre él 
+          y los ejecutivos de la serie que había creado, Community, él y Roiland desarrollaron una serie 
+          basada en los personajes ya creados por Roiland.
+         </p>
+         <p>
+          La fórmula general en Rick y Morty consiste en la yuxtaposición de dos escenarios que confluyen. 
+          Por un lado se muestran las aventuras que vive un abuelo extremadamente egoísta y alcohólico por 
+          lo vasto y desconocido del espacio intergaláctico o interdimensional, el cual arrastra a su nieto 
+          para que viaje con él. Estas aventuras se intercalan en cada episodio con dramas domésticos 
+          familiares más propios del género sitcom.
+         </p>
+         
+    </div>
+    <div class="col-12" [ngStyle]="{'background-color':'rgb(47, 79, 79)','padding-bottom':'20px'}">
+      <h2>Personajes</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4 p-2">
+        <div class="col" *ngFor="let personajes of personajes">
+          <div class="card">
+            <img [ngStyle]="{'height':'96.63px', 'width':'240px'}" src="{{personajes.imagen}}" class="card-img-top" alt="...">
+            <div class="card-body" [ngStyle]="{'height':'232px', 'overflow':'hidden', 'background-color':'#D3D3D3'}">
+              <h5 class="card-title text-dark">{{personajes.nombre}}</h5>
+              <p [ngStyle]="{'color':'#000', 'font-size':'13px'}" class="card-text">{{personajes.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

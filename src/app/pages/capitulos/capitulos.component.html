@@ -1,0 +1,43 @@
+<!-------------------------Buscador de Personaje--------------------------------->
+
+
+<div class="container mt-3">
+    <div class="row">
+        <input type="text" #termino class="form-control" value="" (keyup)="setUrlSearchCapitulos(termino.value)" placeholder="search..." style="cursor: pointer">
+    </div>
+</div>
+<!----------------------Tabla de capitulos Personaje------------------------------>
+
+<div>
+    <button [ngStyle]="{'margin-left':'110px', 'margin-top':'20px'}" [routerLink]="['/pages/home']" class="btn btn-outline-primary text-white"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+     </svg>
+      Regresar 
+   </button>
+</div>
+<div class="container mt-5">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-white" style="text-align: center;">
+            <thead class="" style="background-color: #141414;">
+                <tr>
+                    <th scope="col">Nombre de capitulo</th>
+                    <th scope="col">Fecha de presentación </th>
+                    <th scope="col">Lista de personajes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let listadoCapitulos of listaCapitulos" class="table-secondary text-dark">
+                    <th scope="row" style="vertical-align: middle;"> {{ listadoCapitulos.name }} </th>
+                    <td style="vertical-align: middle;"> {{ listadoCapitulos.air_date }} </td>
+                    <td>
+                        <ul style="list-style: none;">
+                            <li [routerLink]="['capitulos-personajes']" *ngFor="let personaje of listadoCapitulos.personajes" style="cursor: pointer" (click)="verCapitulos( personaje )">
+                                {{personaje.name}}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

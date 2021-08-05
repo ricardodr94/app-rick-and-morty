@@ -1,10 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+//componentes
+import { NopagefoundComponent } from './nopagefound/nopagefound/nopagefound.component';
+
+const APP_ROUTES: Routes = [
+    {
+      path:'pages',
+      loadChildren:()=>import('./pages/pages.module').then(p=>p.PagesModule)
+    },
+    {
+      path:"**", component:NopagefoundComponent
+    }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    APP_ROUTES,
+    {
+      preloadingStrategy: PreloadAllModules
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

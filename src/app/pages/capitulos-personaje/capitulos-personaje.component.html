@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class=" row row-cols-1 row-cols-md-2">
+        <div class="col-4 mb-4">
+            <div class="card mb-3 text-white bg-dark border border-light" style=" background-color: rgb(60, 62, 68);">
+                <div class="row no-gutters">
+                    <div class="col-md-5" >
+                        <img [src]="personaje.image" class="card-img-top h-100" alt="..." style="height:200px;" >
+                    </div>
+                    <div class="col-md-7 mb-0" [ngStyle]="{'padding':'0px 8px'}" >
+                        <div class="card-body col-md-12" [ngStyle]="{'padding':'0px 5px'}">
+                            <h2 class="card-title text1 mb-10" [ngStyle]="{'font-size': '22px'}"> {{ personaje.name }} </h2>
+                            <p class="card-text mb-0"><small class="text-muted"> Especie: </small></p>
+                            <p class="card-text text2"> {{ personaje.species }}</p>
+                            <p class="card-text mb-0"><small class="text-muted"> Estado: </small></p>
+                            <p class="card-text text3"> {{ personaje.status }}</p>
+                            <p class="card-text mb-0"><small class="text-muted"> Genero: </small></p>
+                            <p class="card-text text4"> {{ personaje.gender }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 text-right">
+            <button [ngStyle]="{'margin-right':'20px'}" [routerLink]="['/pages/personajes']" class="btn btn-outline-primary text-white"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+             </svg>
+              Regresar 
+           </button>
+            <button [routerLink]="['/pages/capitulos']" class="btn btn-outline-primary text-white"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                   <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                 Ir a capitulos 
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-white" style="text-align: center;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Listado de capitulos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let capitulos of personaje.capitulos" class="table-secondary text-dark">
+                    <td style="vertical-align: middle;">
+                        <ul style="list-style: none;">
+                            <li> {{ capitulos.name }}</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
